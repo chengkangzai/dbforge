@@ -124,7 +124,6 @@ jobs:
             artifacts/**/*.dmg
             artifacts/**/*.exe
             artifacts/**/*.AppImage
-            artifacts/**/*.yml
           draft: true
           prerelease: false
           fail_on_unmatched_files: false
