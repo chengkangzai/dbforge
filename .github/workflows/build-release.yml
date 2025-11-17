@@ -41,10 +41,14 @@ jobs:
         run: npm run build
 
       - name: Build Electron app
-        run: npm run electron:build
+        run: |
+          # Temporarily rename .git to prevent electron-builder from detecting tags
+          mv .git .git-backup
+          npm run electron:build
+          mv .git-backup .git
         env:
-          # Disable electron-builder publishing (we handle it later)
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
+          CSC_IDENTITY_AUTO_DISCOVERY: false
 
       - name: List build outputs (debug)
         run: |
