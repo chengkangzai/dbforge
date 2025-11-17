@@ -11,7 +11,7 @@
     "electron": "electron .",
     "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
     "electron:build": "vite build && electron-builder",
-    "release": "vite build && electron-builder --publish always"
+    "release": "vite build && electron-builder --publish never"
   },
   "keywords": [
     "electron",

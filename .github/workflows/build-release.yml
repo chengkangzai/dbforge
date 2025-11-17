@@ -43,8 +43,8 @@ jobs:
       - name: Build Electron app
         run: npm run electron:build
         env:
-          # GitHub token for uploading releases
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Disable electron-builder publishing (we handle it later)
+          ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
 
       - name: List build outputs (debug)
         run: |
