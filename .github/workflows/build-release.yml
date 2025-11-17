@@ -91,7 +91,7 @@ jobs:
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.3.3
         with:
           tag_name: ${{ github.ref_name }}
           name: DBForge v${{ steps.version.outputs.version }}
@@ -125,7 +125,6 @@ jobs:
             artifacts/**/*.exe
             artifacts/**/*.AppImage
             artifacts/**/*.yml
-            artifacts/**/*.yaml
           draft: true
           prerelease: false
           fail_on_unmatched_files: false
