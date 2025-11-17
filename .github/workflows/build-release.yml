@@ -91,12 +91,14 @@ jobs:
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          name: Database Manager v${{ steps.version.outputs.version }}
+          name: DBForge v${{ steps.version.outputs.version }}
           body: |
-            ## Database Manager GUI v${{ steps.version.outputs.version }}
+            ## DBForge v${{ steps.version.outputs.version }}
+
+            Desktop database management tool built with Electron.
 
             ### Downloads
             - **macOS**: Download the `.dmg` file
@@ -108,8 +110,12 @@ jobs:
             - **Windows**: Windows Defender may show a warning for unsigned executables
             - **Linux**: Make the AppImage executable: `chmod +x Database-Manager-*.AppImage`
 
-            ### Changes
-            <!-- Add release notes here before publishing -->
+            ### Features
+            - Database restoration from SQL dumps
+            - Create slim dumps (exclude large tables)
+            - Snapshot management with descriptions
+            - File management operations
+            - MySQL connection management
 
             ---
 
@@ -122,5 +128,7 @@ jobs:
             artifacts/**/*.yaml
           draft: true
           prerelease: false
+          fail_on_unmatched_files: false
+          make_latest: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

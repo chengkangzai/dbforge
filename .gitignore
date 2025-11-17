@@ -118,3 +118,8 @@ Desktop.ini
 
 # Application-specific
 config/user-config.json
+
+# Build artifacts (downloaded from GitHub Actions)
+linux-build/
+mac-build/
+win-build/
