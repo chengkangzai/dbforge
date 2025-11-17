@@ -130,5 +130,6 @@ jobs:
           prerelease: false
           fail_on_unmatched_files: false
           make_latest: false
+          generate_release_notes: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
