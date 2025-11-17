@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-dark-bg text-dark-text font-mono;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-2 h-2;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-dark-bg;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-dark-border rounded hover:bg-dark-muted;
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-dark-surface border border-dark-border rounded-lg p-4;
+    }
+
+    .btn {
+        @apply px-4 py-2 rounded font-medium transition-colors;
+    }
+
+    .btn-primary {
+        @apply btn bg-primary-600 hover:bg-primary-700 text-white;
+    }
+
+    .btn-secondary {
+        @apply btn bg-dark-surface hover:bg-dark-border border border-dark-border;
+    }
+
+    .btn-danger {
+        @apply btn bg-red-600 hover:bg-red-700 text-white;
+    }
+
+    .input {
+        @apply bg-dark-bg border border-dark-border rounded px-3 py-2 focus:outline-none focus:border-primary-500 transition-colors;
+    }
+
+    .sidebar-item {
+        @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-colors cursor-pointer;
+    }
+
+    .sidebar-item-active {
+        @apply sidebar-item bg-primary-600 text-white;
+    }
+
+    .sidebar-item-inactive {
+        @apply sidebar-item hover:bg-dark-surface text-dark-muted hover:text-dark-text;
+    }
+
+    /* Preserve emoji colors by preventing text color inheritance */
+    .emoji-no-color {
+        font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        color: initial !important;
+        -webkit-text-fill-color: initial !important;
+    }
+}
